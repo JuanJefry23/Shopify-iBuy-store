@@ -1,0 +1,23 @@
+.headerBanner{
+    height: 50px;
+    background-color: #000;
+    color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerBanner__icon {
+    width: 25px;
+    margin: 0 10px;
+    margin-top: 5px;
+}
+
+.headerBanner a {
+    color: #ddd;
+    transition: opacity .5s;
+}
+
+.headerBanner a:hover {
+    opacity: 75%;
+}
