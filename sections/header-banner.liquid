@@ -5,3 +5,16 @@
     <div class="headerBanner__icon">{% render 'arrow-right-icon' %}</div>
     <a href="#">Visit them</a>
 </div>
+
+
+<navbar>
+    <div class="container navbar">
+        <div class="navbar__logo">LOGO</div>
+        <div class="navbar__links">
+            {% for link in linklists["main-menu"].links %}
+                {{ link.title |  link_to: link.url }}
+            {% endfor %}
+        </div>
+        <div class="navbar__icons">ICONS</div>
+    </div>   
+</navbar>

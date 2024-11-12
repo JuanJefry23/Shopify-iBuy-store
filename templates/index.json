@@ -1,9 +1,14 @@
+ 
+
 {
     "name": "HomePage",
     "sections": {
         "main": {
             "type": "home-page"
+        },
+        "product": {
+            "type": "product"
         }
     },
-    "order": ["main"]
+    "order": ["main", "product"]
 }
