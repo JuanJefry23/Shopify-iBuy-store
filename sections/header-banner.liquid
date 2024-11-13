@@ -7,14 +7,22 @@
 </div>
 
 
-<navbar>
+<navbar class="nav">
     <div class="container navbar">
-        <div class="navbar__logo">LOGO</div>
+        <div class="navbar__logo">
+            <a href="{{ routes.root_url }}"> 
+                <img src="{{ 'logo.png' | asset_img_url }}" alt="logo iBuy"> 
+            </a> 
+        </div>
         <div class="navbar__links">
             {% for link in linklists["main-menu"].links %}
                 {{ link.title |  link_to: link.url }}
             {% endfor %}
         </div>
-        <div class="navbar__icons">ICONS</div>
+        <div class="navbar__icons">
+            <span class="navbar__icons_item">{{ 'icon-search.svg' | inline_asset_content }}</span>
+            <span class="navbar__icons_item">{{ 'icon-account.svg' | inline_asset_content }}</span>
+            <span class="navbar__icons_item">{{ 'icon-cart-empty.svg' | inline_asset_content }}</span>
+        </div>
     </div>   
 </navbar>
