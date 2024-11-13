@@ -5,4 +5,4 @@
 
 ## Links for this Shopify Theme Store
 
-Published Project: https://c1ybjf-vn.myshopify.com/    (Still under development)
+Published Shopify Store Template: https://c1ybjf-vn.myshopify.com/    (Still under development)
