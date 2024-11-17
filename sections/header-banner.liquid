@@ -15,14 +15,64 @@
             </a> 
         </div>
         <div class="navbar__links">
-            {% for link in linklists["main-menu"].links %}
-                {{ link.title |  link_to: link.url }}
-            {% endfor %}
+            <form action="{{ routes.search_url }}" method="get" role="search" id="form-search" class="formSearch">
+                <input 
+                    type="text" 
+                    class="inputSearch" 
+                    name="q"
+                    value="{{ search.terms |  escape }}"
+                    placeholder="Search the product here"
+                >
+                <span class="navbar__icons_item navbar__icons_item-search">
+                    {{ 'icon-search.svg' | inline_asset_content }}
+                </span>
+                <span id="close-form" class="navbar__icons_item navbar__icons_item-close">
+                    {{ 'icon-close.svg' | inline_asset_content }}
+                </span>
+            </form>
+            <div id="menu-center-links" class="menu-center-links">
+                {% for link in linklists["main-menu"].links %}
+                    {{ link.title |  link_to: link.url }}
+                {% endfor %}
+            </div>
         </div>
         <div class="navbar__icons">
-            <span class="navbar__icons_item">{{ 'icon-search.svg' | inline_asset_content }}</span>
-            <span class="navbar__icons_item">{{ 'icon-account.svg' | inline_asset_content }}</span>
-            <span class="navbar__icons_item">{{ 'icon-cart-empty.svg' | inline_asset_content }}</span>
+            <span id="test" class="navbar__icons_item navbar__icons_item-search">{{ 'icon-search.svg' | inline_asset_content }}</span>
+            {% comment %} {% render 'header-search', input_id: 'Search-In-Modal' %} {% endcomment %}
+            <a
+                href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
+                rel="nofollow"
+            >
+                <span class="navbar__icons_item">{{ 'icon-account.svg' | inline_asset_content }}</span>
+            </a>
+            <a href="{{ routes.cart_url }}">
+                <span class="navbar__icons_item navbar__icons_item-cart">{{ 'icon-cart-empty.svg' | inline_asset_content }}</span>
+            </a>
         </div>
     </div>   
 </navbar>
+
+
+<script>
+    const myElement = document.querySelector("#test");
+    const menuCenterLinks = document.querySelector("#menu-center-links");
+    const formSearch = document.querySelector("#form-search");
+    const closeForm = document.querySelector("#close-form");
+
+    console.log("myElement", myElement);
+    console.log("formSearch", formSearch);
+    myElement.addEventListener("click", () => {
+        menuCenterLinks.style.display = "none";
+        formSearch.classList.add("testS");
+        formSearch.classList.add("elementAAnimar");
+        myElement.style.display="none";
+    })
+
+    closeForm.addEventListener("click", () => {
+        console.log("close");
+        formSearch.classList.remove("testS");
+        menuCenterLinks.style.display = "flex";
+        myElement.style.display = "inherit";
+    })
+
+</script>

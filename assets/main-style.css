@@ -19,6 +19,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 0px;
+    width: 90%;
 }
 
 .navbar__links a{
@@ -43,6 +44,7 @@
     /* border: 1px solid red; */
     display: flex;
     align-items: center;
+    /* cursor: pointer; */
 }
 
 /* .navbar__icons span {
@@ -52,15 +54,81 @@
 } */
 
 .navbar__icons_item {
+    display: inline-block;
     width: 20px;
-    margin-right: 10px;
+    /* margin-right: 10px; */
+    cursor: pointer;
 }
 
-.navbar__icons_item:first-of-type {
-    margin-right: 50px;
-}
-
-.navbar__icons span:last-of-type {
+.navbar__icons_item-cart {
     width: 40px;
+}
+
+.navbar__icons_item-search {
+    margin-right: 25px;
+}
+
+.navbar__icons_item-close {
+    width: 25px;
+}
+
+.formSearch {
+    display: none;
+}
+
+.testS {
+    display: flex;
+    align-items: center;
+}
+
+.testS span {
+    margin: 5px;
+}
+
+.inputSearch {
+    width: 500px;
+    padding: 10px 15px;
+    border: 1px solid #d3d3d3;
+    border-radius: 10px;
+    margin-right: 5px;
+}
+
+.inputSearch:focus {
+    outline: 1px solid #d3d3d3;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+}
+
+.elementAAnimar {
+    animation: nombreDeLaAnimacionAEjecutar 1s;
+}
+
+@keyframes nombreDeLaAnimacionAEjecutar {
+
+    0% {
+        opacity: 0%;
+    }
+
+    25% {
+        opacity: 25%;
+    }
+
+    50% {
+        opacity: 50%;
+    }
+
+    75% {
+        opacity: 75%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+
 }
 
