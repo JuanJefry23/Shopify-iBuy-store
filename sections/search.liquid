@@ -1,19 +1,40 @@
-<h1>SEARCH PAGE</h1>
+{{ 'search.css' | asset_url | stylesheet_tag }}
 
-{{ search.results.object_type }}
+<main class="search">
+  <div class="container">
+    <h1>Results</h1>
+    
+    <p class="searchResult">
+      You have searched: <span>{{ search.terms |  highlight: search.terms}}</span>
+    </p>
 
-{{ search.terms | highlight: search.terms }}xxxx
+      {{ search.results_count }}
 
-{{ search.results_count }}
+    <div class="results-grid">
+      {% for item in search.results %}
+        <div class="productSearch">
+          <a href="{{ item.url }}">
+            <div class="productSearch__img">
+              <img src="{{ item.featured_image | image_url }}" alt="">
+            </div>
+          </a>
+          <div class="productSearch__text">
+            <h3>
+              {{ item.title | link_to: item.url }}
+            </h3>
+            <p>{{ item.content }}</p>
+          </div>
+        </div>
+        
+      {% endfor %}
+    </div>
+      
+  </div>
 
-{% for item in search.results %}
-    {{ forloop.index }}
-    <h3>
-      {{ item.title | link_to: item.url }}
-      {{ item.object_type | link_to: item.url }}
-    </h3>
-    <img src="{{ item.featured_image | image_url }}" alt="">
-{% endfor %}
+
+
+</main>
+
 
 
 

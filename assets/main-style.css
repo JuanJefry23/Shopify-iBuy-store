@@ -117,10 +117,6 @@ input[type="search"]::-webkit-search-results-decoration {
     display: none;
 } */
 
-.highlight {
-    background-color: #d3d3d3;
-}
-
 .elementAAnimar {
     animation: nombreDeLaAnimacionAEjecutar 1s;
 }
