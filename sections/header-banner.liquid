@@ -23,9 +23,11 @@
                     value="{{ search.terms |  escape }}"
                     placeholder="Search the product here"
                 >
-                <span class="navbar__icons_item navbar__icons_item-search">
-                    {{ 'icon-search.svg' | inline_asset_content }}
-                </span>
+                <button type="submit" class="submit">
+                    <span class="navbar__icons_item navbar__icons_item-search navbar__icons_item-searchForm">
+                        {{ 'icon-search.svg' | inline_asset_content }}
+                    </span>
+                </button>
                 <span id="close-form" class="navbar__icons_item navbar__icons_item-close">
                     {{ 'icon-close.svg' | inline_asset_content }}
                 </span>
@@ -37,7 +39,7 @@
             </div>
         </div>
         <div class="navbar__icons">
-            <span id="test" class="navbar__icons_item navbar__icons_item-search">{{ 'icon-search.svg' | inline_asset_content }}</span>
+            <span id="iconSearch" class="navbar__icons_item navbar__icons_item-search">{{ 'icon-search.svg' | inline_asset_content }}</span>
             {% comment %} {% render 'header-search', input_id: 'Search-In-Modal' %} {% endcomment %}
             <a
                 href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
@@ -48,31 +50,63 @@
             <a href="{{ routes.cart_url }}">
                 <span class="navbar__icons_item navbar__icons_item-cart">{{ 'icon-cart-empty.svg' | inline_asset_content }}</span>
             </a>
+            <span id="hamburguerMenu" class="navbar_icons_item-hamburguer hideHamburgerIcon">{{ 'icon-hamburger.svg' | inline_asset_content }}</span>
+            <span id="closeHamburguerMenu" class="navbar_icons_item-closeHamburguer hideElement">{{ 'icon-close.svg' | inline_asset_content }}</span>
         </div>
-    </div>   
+    </div>
+    <div id="sideMenu" class="menu-side hideElement">
+        <div class="menu-side__links">
+            {% for link in linklists["main-menu"].links %}
+                {{ link.title |  link_to: link.url }}
+            {% endfor %}
+            <a href="{{ routes.account_url }}">My account</a>
+            <a href="{{ routes.cart_url }}">Cart</a>
+        </div>
+    </div>
 </navbar>
 
 
 <script>
-    const myElement = document.querySelector("#test");
+    const iconSearch = document.querySelector("#iconSearch");
     const menuCenterLinks = document.querySelector("#menu-center-links");
     const formSearch = document.querySelector("#form-search");
     const closeForm = document.querySelector("#close-form");
+    const hamburguerMenu = document.querySelector("#hamburguerMenu");
+    const closeHamburguerMenu = document.querySelector("#closeHamburguerMenu");
+    const sideMenu = document.querySelector("#sideMenu");
 
-    console.log("myElement", myElement);
-    console.log("formSearch", formSearch);
-    myElement.addEventListener("click", () => {
+    iconSearch.addEventListener("click", () => {
         menuCenterLinks.style.display = "none";
-        formSearch.classList.add("testS");
+        formSearch.classList.add("formSearchVisible");
         formSearch.classList.add("elementAAnimar");
-        myElement.style.display="none";
+        iconSearch.style.display="none";
     })
 
     closeForm.addEventListener("click", () => {
-        console.log("close");
-        formSearch.classList.remove("testS");
+        formSearch.classList.remove("formSearchVisible");
         menuCenterLinks.style.display = "flex";
-        myElement.style.display = "inherit";
+        iconSearch.style.display = "inherit";
     })
 
+    hamburguerMenu.addEventListener("click", () => {
+        hamburguerMenu.style.display= "none";
+        closeHamburguerMenu.classList.remove("hideElement");
+        sideMenu.style.display = "inherit";
+    })
+
+    closeHamburguerMenu.addEventListener("click", () => {
+        closeHamburguerMenu.style.display = "none";
+        sideMenu.style.display = "none";
+        hamburguerMenu.style.display = "inherit";
+    })
+
+    // sideMenu.addEventListener("click", () => {
+    // })
+
 </script>
+
+{% comment %} 
+
+*Para llegar al 'search page' los clientes deben realizar una búsqueda a través del 'search form'!
+
+{% endcomment %}

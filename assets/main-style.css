@@ -76,12 +76,12 @@
     display: none;
 }
 
-.testS {
+.formSearchVisible {
     display: flex;
     align-items: center;
 }
 
-.testS span {
+.formSearchVisible span {
     margin: 5px;
 }
 
@@ -97,6 +97,19 @@
     outline: 1px solid #d3d3d3;
 }
 
+.submit {
+    background-color: #fff;
+    border: none;
+}
+
+.navbar_icons_item-hamburguer {
+    width: 17px;
+}
+
+.navbar_icons_item-closeHamburguer {
+    width: 27px;
+}
+
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
@@ -104,8 +117,16 @@ input[type="search"]::-webkit-search-results-decoration {
     display: none;
 }
 
+.highlight {
+    background-color: #d3d3d3;
+}
+
 .elementAAnimar {
     animation: nombreDeLaAnimacionAEjecutar 1s;
+}
+
+.hideElement {
+    display: none;
 }
 
 @keyframes nombreDeLaAnimacionAEjecutar {
@@ -132,3 +153,80 @@ input[type="search"]::-webkit-search-results-decoration {
 
 }
 
+.menu-side{
+    display: none;
+}
+
+.hideHamburgerIcon{
+    display: none;
+}
+
+/************************** Responsive design *************************/
+
+@media screen and (max-width: 768px){
+
+    .navbar_icons_item-hamburguer {
+        display: inherit;
+    }
+
+    .navbar__icons_item, .menu-center-links{
+        display: none;
+    }
+
+    /* .menu-center-links {
+        display: none;
+    } */
+
+    .formSearch {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .navbar__links, .inputSearch {
+        max-width: 70%;
+    }
+
+    .navbar__icons_item-searchForm {
+        display: inherit;
+        width: 17px;
+    }
+
+    .formSearchVisible span {
+        margin: 0 10px;
+    }
+
+    .navbar__icons_item-searchForm{
+        margin-right: 0;
+    }
+
+    .navbar__logo img {
+        width: 70px;
+    }
+
+    .menu-side {
+        background-color: #F5F5F7;
+        width: 350px;
+        height: 100vh;
+        position: absolute;
+        right: 0;
+    }
+
+    .menu-side__links {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .menu-side__links a {
+        text-decoration: none;
+        text-align: center;
+        padding: 20px 0;
+        border-bottom: 1px solid #d3d3d3;
+        color: #000;
+        font-size: 18px;
+    }
+
+    .menu-side__links a:hover {
+        background-color: rgb(218, 218, 219);;
+    }
+}

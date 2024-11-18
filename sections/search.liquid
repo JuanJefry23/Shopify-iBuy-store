@@ -1,0 +1,27 @@
+<h1>SEARCH PAGE</h1>
+
+{{ search.results.object_type }}
+
+{{ search.terms | highlight: search.terms }}xxxx
+
+{{ search.results_count }}
+
+{% for item in search.results %}
+    {{ forloop.index }}
+    <h3>
+      {{ item.title | link_to: item.url }}
+      {{ item.object_type | link_to: item.url }}
+    </h3>
+    <img src="{{ item.featured_image | image_url }}" alt="">
+{% endfor %}
+
+
+
+{% comment %} 
+
+Para llegar a esta página los clientes DEBEN REALIZAR UNA BÚSQUEDA A TRAVÉS DEL 'search form' y esta ruta es dada en el 'action' del search form
+mediante 'routes.search_url' que es donde le indica la ruta a la página de 'search'.
+
+*El value="{{ search.terms | escape }}" sirve para preservar la búsqueda de los usuarios.
+
+{% endcomment %}
