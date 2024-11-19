@@ -3,13 +3,9 @@
 <main class="search">
   <div class="container">
     <h1>Results</h1>
-    
     <p class="searchResult">
       You have searched: <span>{{ search.terms |  highlight: search.terms}}</span>
     </p>
-
-      {{ search.results_count }}
-
     <div class="results-grid">
       {% for item in search.results %}
         <div class="productSearch">
@@ -23,16 +19,12 @@
               {{ item.title | link_to: item.url }}
             </h3>
             <p>{{ item.content }}</p>
+            <a href="{{ item.url }}" class="productSearch__text-verMas" >Ver más</a>
           </div>
         </div>
-        
       {% endfor %}
-    </div>
-      
+    </div>  
   </div>
-
-
-
 </main>
 
 
@@ -44,5 +36,9 @@ Para llegar a esta página los clientes DEBEN REALIZAR UNA BÚSQUEDA A TRAVÉS D
 mediante 'routes.search_url' que es donde le indica la ruta a la página de 'search'.
 
 *El value="{{ search.terms | escape }}" sirve para preservar la búsqueda de los usuarios.
+
+Documentación para la parte de search:
+https://shopify.dev/docs/storefronts/themes/architecture/templates/search#the-search-results
+https://shopify.dev/docs/api/liquid/objects/search
 
 {% endcomment %}
