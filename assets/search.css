@@ -88,3 +88,21 @@
 .productSearch__text-verMas:hover {
     background-color: rgba(0, 0, 0, 0.20);
 }
+
+/****************************** Responsive design *******************************/
+
+@media screen and (max-width: 490px) {
+    .results-grid {
+        grid-template-columns: .9fr;
+        justify-content: center;
+    }
+
+}
+
+@media screen and (max-width: 790px) {
+    .results-grid {
+        grid-template-columns: .9fr .9fr;
+        justify-content: space-between;
+    }
+
+}
