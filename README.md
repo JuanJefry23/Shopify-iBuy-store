@@ -7,6 +7,7 @@
 ## Links for this Shopify Theme Store
 
 
+
 Published Shopify Store Template: 
 
 
